@@ -1,10 +1,8 @@
 package com.bharath.springdata.product;
 
-import com.bharath.springdata.product.entities.Address;
-import com.bharath.springdata.product.entities.Customer;
-import com.bharath.springdata.product.entities.Customer2;
-import com.bharath.springdata.product.entities.Employee2;
+import com.bharath.springdata.product.entities.*;
 import com.bharath.springdata.product.repos.Customer2Repository;
+import com.bharath.springdata.product.repos.Customer4Repository;
 import com.bharath.springdata.product.repos.CustomerRepository;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -32,6 +30,9 @@ public class CustomerTests {
 
     @Autowired
     private Customer2Repository repository2;
+
+    @Autowired
+    private Customer4Repository repository4;
 
     @Test
     void contextLoads() {
@@ -125,6 +126,15 @@ public class CustomerTests {
         customer.setAddress(address);
 
         repository2.save(customer);
+    }
+
+    @Test
+    public void testSaveCustomer() {
+        Customer4 customer4 = new Customer4();
+        customer4.setId(1234);
+        customer4.setEmail("test@test.com");
+        customer4.setName("Jesus");
+        repository4.save(customer4);
     }
 
 }

@@ -221,3 +221,14 @@ BEGIN
 	SELECT *  FROM product where price>price_in;
 END //
 
+use mydb;
+
+create table customer4(
+	id int not null, 
+    email varchar(255) not null,
+    name varchar(255) not null,
+    primary key (id, email)
+);
+
+select * from customer4;
+
